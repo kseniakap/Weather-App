@@ -1,0 +1,23 @@
+@import "./../../../../styles/variables.scss";
+
+.todayInfo {
+  padding: 41px 31px;
+  width: 750px;
+  min-height: 300px;
+  flex-shrink: 0;
+  border-radius: $border-radius;
+  background: $color-bg;
+  box-shadow: $box-shadow;
+  position: relative;
+  &__img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5;
+  }
+  &__items{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+}

@@ -1,6 +1,5 @@
 .header {
   width: 100%;
-  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,6 +10,11 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.img,
+.change_theme {
+  cursor: pointer;
+}
 .text {
   color: #4793ff;
   font-size: 25px;
@@ -19,5 +23,3 @@
   line-height: normal;
   text-transform: uppercase;
 }
-
-
