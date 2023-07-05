@@ -1,5 +1,6 @@
 @import "./../../../../../styles/variables.scss";
 .todayItems {
+  border-radius: $border-radius;
   &__wrapper {
     display: flex;
     justify-content: left;
@@ -19,14 +20,14 @@
   }
   &__name {
     width: 96px;
-    color: $text-light;
+    color: var(--text-light);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
   }
   &__value {
-    color:$text-bold;
+    color: var(--text-bold);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

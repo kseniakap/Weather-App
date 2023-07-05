@@ -8,9 +8,27 @@
 }
 body {
   font-family: "Montserrat", sans-serif;
+  position: relative;
 }
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 20px;
+}
+html[data-theme="light"] {
+  --color-bg: #fff;
+  --color-fon: #fff;
+  --box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  --text-bold: #000;
+  --text-light: #939cb0;
+}
+html[data-theme="dark"] {
+  --color-bg: #4F4F4F;
+  --color-fon: #000;
+  --box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  --text-bold: #fff;
+  --text-light: #939cb0;
+}
+.main_container{
+  background-color: var(--color-fon);
 }

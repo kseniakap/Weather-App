@@ -1,13 +1,14 @@
 @import "./../../../../styles/variables.scss";
 .days {
+  margin-top: 7px;
   display: flex;
   gap: 20px;
   justify-content: center;
   width: 1200px;
   min-height: 240px;
-  border-radius: 0px 0px 20px 20px;
-  background: $color-bg;
-  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  background: var(--color-bg);
+  box-shadow: var(--box-shadow);
   padding: 20px;
 }
 .card {
@@ -16,8 +17,7 @@
   min-height: 200px;
   border-radius: 10px;
   background: rgba(71, 147, 255, 0.2);
-
-  color: $text-bold;
+  color: var(--text-bold);
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -28,9 +28,8 @@
 .night,
 .info {
   margin-top: 7px;
-  color: $text-light;
+  color: var(--text-light);
   font-size: 14px;
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -46,4 +45,32 @@
 }
 .info {
   margin-top: 3px;
+}
+.tabs {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.tab {
+  padding: 8px 20px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--text-bold);
+  border-radius: 5px;
+  background:var(--color-bg);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  .active {
+    color: #fff;
+    background:var(--accent-color);
+  }
+}
+.wrapper {
+  display: flex;
+  gap: 15px;
+  justify-content: start;
+}
+.cancel {
+  width: 134px;
 }

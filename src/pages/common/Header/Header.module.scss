@@ -1,3 +1,4 @@
+@import "./../../../styles/variables.scss";
 .header {
   width: 100%;
   display: flex;
@@ -16,7 +17,7 @@
   cursor: pointer;
 }
 .text {
-  color: #4793ff;
+  color: $accent-color;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;

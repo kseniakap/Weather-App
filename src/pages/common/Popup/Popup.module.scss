@@ -1,0 +1,63 @@
+@import "./../../../styles/variables.scss";
+
+.popup {
+  padding: 41px 31px;
+  width: 750px;
+  min-height: 300px;
+  flex-shrink: 0;
+  border-radius: $border-radius;
+  background: var(--color-bg);
+  box-shadow: var(--box-shadow);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 21;
+}
+.blur {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.wrapper {
+  display: flex;
+  gap: 30px;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.temp {
+  font-weight: 500;
+  font-size: 60px;
+  color: $accent-color;
+  margin-bottom: 12px;
+}
+.day {
+  font-size: 25px;
+  line-height: 30px;
+  color: #000000;
+  margin-bottom: 12px;
+}
+.img {
+  svg {
+    width: 53px;
+    height: 53px;
+  }
+  margin-bottom: 12px;
+}
+.time,
+.city {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-top: 7px;
+}

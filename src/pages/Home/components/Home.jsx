@@ -1,17 +1,24 @@
 import React from 'react';
-import style from './Home.module.scss';
+import st from './Home.module.scss';
 import Today from './Today/Today';
 import TodayInfo from './TodayInfo/TodayInfo';
 import Days from './Days/Days'
+import Popup from '../../common/Popup/Popup';
 
-console.log(style); 
-const Home = () => {
+
+
+const Home = ({items}) => {
+  
   return (
-    <div className={style.home}>
-      <Today/>
-      <TodayInfo/>
-      <Days/>
+    <>
+    <div className={st.home}>
+      <div className={st.wrapper}>
+        <Today/>
+        <TodayInfo items={items}/>
+      </div>
+        <Days/>
     </div>
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import st from './Days.module.scss'
 import Card from './Card';
+import Tabs from './Tabs'
 
 import sun from './../../../../assets/icons/small_rain.svg'
 import smallRainSun from './../../../../assets/icons/small_rain_sun.svg'
@@ -68,13 +69,16 @@ const Days = () => {
         },
       ];
   return (
-    <div className={st.days}>
-        {
+    <>
+      <Tabs/>
+      <div className={st.days}>
+          {
             days.map((day, i)=>(
                 <Card key={i} item={day}/>
             ))
-        }
-    </div>
+          }
+      </div>
+    </>
   )
 }
 
