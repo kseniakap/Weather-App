@@ -1,0 +1,49 @@
+@import "./../../../../styles/variables.scss";
+.days {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 1200px;
+  min-height: 240px;
+  border-radius: 0px 0px 20px 20px;
+  background: $color-bg;
+  box-shadow: $box-shadow;
+  padding: 20px;
+}
+.card {
+  width: 149px;
+  padding: 10px;
+  min-height: 200px;
+  border-radius: 10px;
+  background: rgba(71, 147, 255, 0.2);
+
+  color: $text-bold;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.info,
+.night,
+.info {
+  margin-top: 7px;
+  color: $text-light;
+  font-size: 14px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.img {
+  margin-top: 12px;
+}
+.temp {
+  margin-top: 13px;
+}
+.night {
+  margin-top: 0px;
+}
+.info {
+  margin-top: 3px;
+}
