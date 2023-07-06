@@ -5,7 +5,7 @@ import st from './TodayInfo.module.scss';
 import cloud from './../../../../assets/icons/cloud.png'
 
 const ThisDayInfo = ({items}) => {
-
+  
   return (
     <div className={st.todayInfo}>
       <div className={st.todayInfo__items}>

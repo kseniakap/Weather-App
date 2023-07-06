@@ -15,7 +15,7 @@ const Header = ({Change, theme}) => {
     const selectStyle = {
         control:(styles)=>({
             ...styles,
-            background:theme ==="dark"? "#4F4F4F": "rgba(71, 147, 255, 0.20)",
+            background:theme === "dark" ? "#4F4F4F": "rgba(71, 147, 255, 0.20)",
             with:"194px",
             height: "37px",
             border: "none",
