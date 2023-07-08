@@ -38,7 +38,8 @@ const Header = ({Change, theme}) => {
             <img src={ChangeTheme} alt="change theme" />
         </div>
         <div className={st.choice_city}>
-        <Select styles={selectStyle} options={options} defaultValue={options[0].label} />
+          {/* <input type="text" /> */}
+        {/* <Select styles={selectStyle} options={options} defaultValue={options[0].label} /> */}
         </div>
       </div>
     </div>

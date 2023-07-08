@@ -15,7 +15,7 @@ const Today = () => {
       </div>
       <div className={st.today__bottom}>
         <div className={st.today__time}>Время: <span>21:54</span></div>
-        <div className={st.today__city}>Город: <span>Санкт-Петербург</span></div>
+        <div className={st.today__city}>Город: <span>Питер</span></div>
       </div>
 
     </div>

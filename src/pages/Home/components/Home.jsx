@@ -11,7 +11,7 @@ const Home = ({items}) => {
   
   return (
     <>
-    <div className={st.home}>
+    <div className={st.home} >
       <div className={st.wrapper}>
         <Today/>
         <TodayInfo items={items}/>
