@@ -4,14 +4,14 @@ import st from './TodayInfo.module.scss';
 
 import cloud from './../../../../assets/icons/cloud.png'
 
-const ThisDayInfo = ({items}) => {
+const ThisDayInfo = ({items, data}) => {
   
   return (
     <div className={st.todayInfo}>
       <div className={st.todayInfo__items}>
        {
           items.map((item, i) => (
-            <TodayItems key={i} item = {item}/>
+            <TodayItems key={i} item = {item} data={data}/>
           ))
        }
       </div>

@@ -3,6 +3,7 @@ import st from './TodayItems.module.scss';
 
 const TodayItems = ({item}) => {
  const {icon, name, value} = item;
+
   return (
     <div className={st.todayItems}>
         <div className={st.todayItems__wrapper }>

@@ -15,7 +15,7 @@ const Days = () => {
           day: 'Сегодня',
           day_info: '28 авг',
           icon: sun,
-          temp_day: '+18',
+          temp_day: 12,
           temp_night: '+15',
           info: 'Облачно',
         },
@@ -71,14 +71,14 @@ const Days = () => {
   return (
     <>
       <Tabs/>
-      <div className={st.days}>
-          {
-            days.map((day, i)=>(
-                <Card key={i} item={day}/>
-            ))
-          }
-      </div>
-    </>
+        <div className={st.days}>
+        {
+          days.map((day, i)=>(
+              <Card key={i} item={day}/>
+          ))
+        }
+        </div>
+     </>
   )
 }
 

@@ -1,30 +1,31 @@
 import React from 'react'
-import Select from 'react-select'
+// import Select from 'react-select'
 
 import Logo from './../../../assets/icons/header/logo.svg';
 import ChangeTheme from './../../../assets/icons/header/change_theme.svg';
 
 import st from './Header.module.scss'
 
-const Header = ({Change, theme}) => {
-    const options = [
-        { value: 'city-1', label: 'Москва' },
-        { value: 'city-2', label: 'Нью-Йорк' },
-        { value: 'city-3', label: 'Сеул' },
-    ]
-    const selectStyle = {
-        control:(styles)=>({
-            ...styles,
-            background:theme === "dark" ? "#4F4F4F": "rgba(71, 147, 255, 0.20)",
-            with:"194px",
-            height: "37px",
-            border: "none",
-            borderRadius:'10px',
-            fontSize: "16px",
-            color: "black",
-            fontWeight: "500"
-        })
-    }
+const Header = ({Change, theme, getInfoWeather, valueInput, onChangeValueInput}) => {
+
+    // const options = [
+    //     { value: 'city-1', label: 'Москва' },
+    //     { value: 'city-2', label: 'Нью-Йорк' },
+    //     { value: 'city-3', label: 'Сеул' },
+    // ]
+    // const selectStyle = {
+    //     control:(styles)=>({
+    //         ...styles,
+    //         background:theme === "dark" ? "#4F4F4F": "rgba(71, 147, 255, 0.20)",
+    //         with:"194px",
+    //         height: "37px",
+    //         border: "none",
+    //         borderRadius:'10px',
+    //         fontSize: "16px",
+    //         color: "black",
+    //         fontWeight: "500"
+    //     })
+    // }
    return (
     <div className={st.header}>
       <div className={st.wrapper}>
@@ -38,7 +39,12 @@ const Header = ({Change, theme}) => {
             <img src={ChangeTheme} alt="change theme" />
         </div>
         <div className={st.choice_city}>
-          {/* <input type="text" /> */}
+        <input
+            type="text"  placeholder="Поиск..."
+            onChange={onChangeValueInput}
+            value={valueInput}
+            onKeyDown={getInfoWeather}
+          />
         {/* <Select styles={selectStyle} options={options} defaultValue={options[0].label} /> */}
         </div>
       </div>

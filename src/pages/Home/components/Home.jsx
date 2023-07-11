@@ -7,16 +7,16 @@ import Popup from '../../common/Popup/Popup';
 
 
 
-const Home = ({items}) => {
+const Home = ({items, data}) => {
   
   return (
     <>
     <div className={st.home} >
       <div className={st.wrapper}>
-        <Today/>
+        <Today data={data}/>
         <TodayInfo items={items}/>
       </div>
-        <Days/>
+        <Days data={data}/>
     </div>
     </>
   )
