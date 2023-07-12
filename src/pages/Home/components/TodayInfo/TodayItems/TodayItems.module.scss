@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 11;
   }
   &__name {
     width: 96px;
@@ -25,6 +26,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    z-index: 11;
   }
   &__value {
     color: var(--text-bold);

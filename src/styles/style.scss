@@ -11,8 +11,9 @@ body {
   position: relative;
 }
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
+  padding: 0 20px;
   padding-top: 20px;
 }
 html[data-theme="light"] {
@@ -23,12 +24,92 @@ html[data-theme="light"] {
   --text-light: #939cb0;
 }
 html[data-theme="dark"] {
-  --color-bg: #4F4F4F;
+  --color-bg: #4f4f4f;
   --color-fon: #000;
   --box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
   --text-bold: #fff;
   --text-light: #939cb0;
 }
-.main_container{
+.main_container {
   background-color: var(--color-fon);
+}
+
+//media
+
+@media (max-width: 1400px) {
+  .TodayInfo_todayInfo__IqqKY {
+    width: 740px;
+  }
+}
+@media (max-width: 1200px) {
+  .TodayInfo_todayInfo__IqqKY {
+    width: 55%;
+  }
+  .Home_wrapper__0Knh0 {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 992px) {
+  .Home_wrapper__0Knh0 {
+    gap: 20px;
+    justify-content: center;
+  }
+  .TodayInfo_todayInfo__IqqKY,
+  .Today_today__ZO8Iz {
+    width: 50%;
+  }
+  .TodayItems_todayItems__value__DbMoC {
+    width: 210px;
+  }
+  .TodayInfo_todayInfo__img__ugzo5 {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+
+  .TodayInfo_todayInfo__IqqKY,
+  .Today_today__ZO8Iz {
+    width: 90%;
+  }
+}
+@media (max-width: 576px) {
+  .Header_header__TWQmh {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .Header_wrapper__vq5CE {
+    width: 100%;
+  }
+  .TodayInfo_todayInfo__IqqKY,
+  .Today_today__ZO8Iz {
+    padding: 15px;
+  }
+  .change_theme_none {
+    display: block;
+  }
+  .Header_change_none__9iy3A {
+    display: block;
+  }
+  .Header_change_theme__4trIC {
+    display: none;
+  }
+  .Header_choice_city__I7xsg,
+  .Header_input__Wv4ax {
+    width: 100%;
+  }
+  .Today_today__top__98OAN img {
+    display: none;
+  }
+  .Today_today__bottom__Ol-zm {
+    font-size: 22px;
+  }
+  .TodayItems_todayItems__name__WoTNe {
+    display: none;
+  }
+  .TodayInfo_todayInfo__IqqKY {
+    min-height: 255px;
+  }
+  .TodayInfo_todayInfo__img__ugzo5 {
+    display: none;
+  }
 }

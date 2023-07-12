@@ -11,6 +11,11 @@
   justify-content: space-between;
   align-items: center;
 }
+.wrapper_logo{
+  display: flex;
+  gap: 20px;
+  align-items:center
+}
 
 .img,
 .change_theme {
@@ -23,4 +28,15 @@
   font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
+}
+.input {
+  padding: 5px 10px;
+  width: 250px;
+  border-radius: $border-radius;
+}
+.change_none{
+ display: none;
+}
+.choice_city{
+  display: flex;
 }

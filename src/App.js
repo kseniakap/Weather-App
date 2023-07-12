@@ -10,7 +10,7 @@ import "./styles/style.scss";
 import temp from "./assets/icons/temp.svg";
 import pressure from "./assets/icons/pressure.svg";
 import prec from "./assets/icons/prec.svg";
-import wind from "./assets/icons/wind.svg";
+import windImg from "./assets/icons/wind.svg";
 
 const api = {
   key: "6f9e1953d99aeb23b9f02c854507977c",
@@ -35,69 +35,79 @@ class App extends React.Component {
 
   getInfoWeather = async (e) => {
     if (e && e.key === "Enter") {
-      fetch(
-        `${api.base}weather?q=${this.state.city}&units=metric&appid=${api.key}&lang=ru`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          this.setState({ data: result });
-          this.setState({ city: "" });
-          const { main, wind, weather } = result;
+      try {
+        fetch(
+          `${api.base}weather?q=${this.state.city}&units=metric&appid=${api.key}&lang=ru`
+        )
+          .then((res) => res.json())
+          .then((result) => {
+            this.setState({ city: "" });
+            this.setState({ data: result });
+            const { main, wind, weather } = result;
+            try {
+              let pressureStatus =
+                main.pressure < 760
+                  ? "низкое"
+                  : main.pressure === 760
+                  ? "нормальное"
+                  : "высокое";
 
-          let pressureStatus =
-            main.pressure < 760
-              ? "низкое"
-              : main.pressure === 760
-              ? "нормальное"
-              : "высокое";
+              let windStatus =
+                wind.speed === 0
+                  ? "безветрие"
+                  : wind.speed > 0 && wind.speed <= 5
+                  ? "слабый ветер"
+                  : wind.speed > 5 && wind.speed <= 10
+                  ? "умеренный ветер"
+                  : wind.speed > 10 && wind.speed <= 18
+                  ? "сильный ветер"
+                  : wind.speed > 18 && wind.speed <= 30
+                  ? "шторм"
+                  : "ураган";
 
-          let windStatus =
-            wind.speed === 0
-              ? "безветрие"
-              : wind.speed > 0 && wind.speed <= 5
-              ? "слабый ветер"
-              : wind.speed > 5 && wind.speed <= 10
-              ? "умеренный ветер"
-              : wind.speed > 10 && wind.speed <= 18
-              ? "сильный ветер"
-              : wind.speed > 18 && wind.speed <= 30
-              ? "шторм"
-              : "ураган";
-
-          this.setState({
-            data: result,
-            items: [
-              {
-                icon: temp,
-                name: "Температура",
-                value: `${Math.round(
-                  result.main.temp
-                )}° - ощущается как ${Math.round(main.feels_like)}°`,
-              },
-              {
-                icon: pressure,
-                name: "Давление",
-                value: `${main.pressure} мм ртутного столба - ${pressureStatus} давление`,
-              },
-              {
-                icon: prec,
-                name: "Осадки",
-                value: `${weather[0].description}`,
-              },
-              {
-                icon: wind,
-                name: "Ветер",
-                value: `${wind.speed} м/с  ${this.getCardinalDirection(
-                  wind.deg
-                )} - ${windStatus}`,
-              },
-            ],
+              this.setState({
+                data: result,
+                items: [
+                  {
+                    icon: temp,
+                    name: "Температура",
+                    value: `${Math.round(
+                      result.main.temp
+                    )}° - ощущается как ${Math.round(main.feels_like)}°`,
+                  },
+                  {
+                    icon: pressure,
+                    name: "Давление",
+                    value: `${main.pressure} мм ртутного столба - ${pressureStatus} давление`,
+                  },
+                  {
+                    icon: prec,
+                    name: "Осадки",
+                    value: `${weather[0].description}`,
+                  },
+                  {
+                    icon: windImg,
+                    name: "Ветер",
+                    value: `${wind.speed} м/с  ${this.getCardinalDirection(
+                      wind.deg
+                    )} - ${windStatus}`,
+                  },
+                ],
+              });
+            } catch (e) {}
+            console.log(result);
           });
-          console.log(result);
-        });
+      } catch (e) {}
     }
   };
-
+  // getInfoWeek = () =>{
+  //   fetch(
+  //     `${api.base}forecast/daily?q=${this.state.city}&units=metric&appid=${api.key}&lang=ru`
+  //   ).then((res) => res.json())
+  //   .then((result) =>{
+  //     console.log(result);
+  //   })
+  // }
   toggleModal = () => {
     this.setState((prevState) => ({
       openModal: !prevState.openModal,
@@ -147,11 +157,10 @@ class App extends React.Component {
   // };
 
   render() {
- 
-    const { openModal, theme, items } = this.state;
+    const { theme, items } = this.state;
     return (
       <div className="main_container">
-        {openModal && <Popup items={items} />}
+         <Popup  />
         <div className="container">
           <Header
             theme={theme}

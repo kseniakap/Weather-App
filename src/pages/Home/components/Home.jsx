@@ -3,20 +3,17 @@ import st from './Home.module.scss';
 import Today from './Today/Today';
 import TodayInfo from './TodayInfo/TodayInfo';
 import Days from './Days/Days'
-import Popup from '../../common/Popup/Popup';
 
-
-
-const Home = ({items, data}) => {
+const Home = ({items, data, }) => {
   
   return (
     <>
     <div className={st.home} >
       <div className={st.wrapper}>
-        <Today data={data}/>
+        <Today data={data} />
         <TodayInfo items={items}/>
       </div>
-        <Days data={data}/>
+        {/* <Days data={data}/> */}
     </div>
     </>
   )
