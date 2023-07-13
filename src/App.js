@@ -4,6 +4,7 @@ import Home from "./pages/Home/components/Home";
 import Statictics from "./pages/Statistics/components/Statictics";
 import Header from "./pages/common/Header/Header";
 import Popup from "./pages/common/Popup/Popup";
+import ErrorMessage from "./pages/common/Error/Error";
 
 import "./styles/style.scss";
 
@@ -26,78 +27,80 @@ class App extends React.Component {
       data: {},
       city: "",
       items: [],
+      error: false,
     };
   }
   componentDidMount() {
     this.getInfoWeather();
     this.setThemeAttribute();
   }
+  onError = () => {
+    this.setState({ error: true });
+  };
 
   getInfoWeather = async (e) => {
     if (e && e.key === "Enter") {
-      try {
-        fetch(
-          `${api.base}weather?q=${this.state.city}&units=metric&appid=${api.key}&lang=ru`
-        )
-          .then((res) => res.json())
-          .then((result) => {
-            this.setState({ city: "" });
-            this.setState({ data: result });
-            const { main, wind, weather } = result;
-            try {
-              let pressureStatus =
-                main.pressure < 760
-                  ? "низкое"
-                  : main.pressure === 760
-                  ? "нормальное"
-                  : "высокое";
+      fetch(
+        `${api.base}weather?q=${this.state.city}&units=metric&appid=${api.key}&lang=ru`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          this.setState({ city: "" });
+          this.setState({ data: result });
+          this.setState({ error: false });
+          const { main, wind, weather } = result;
 
-              let windStatus =
-                wind.speed === 0
-                  ? "безветрие"
-                  : wind.speed > 0 && wind.speed <= 5
-                  ? "слабый ветер"
-                  : wind.speed > 5 && wind.speed <= 10
-                  ? "умеренный ветер"
-                  : wind.speed > 10 && wind.speed <= 18
-                  ? "сильный ветер"
-                  : wind.speed > 18 && wind.speed <= 30
-                  ? "шторм"
-                  : "ураган";
+          let pressureStatus =
+            main.pressure < 760
+              ? "низкое"
+              : main.pressure === 760
+              ? "нормальное"
+              : "высокое";
 
-              this.setState({
-                data: result,
-                items: [
-                  {
-                    icon: temp,
-                    name: "Температура",
-                    value: `${Math.round(
-                      result.main.temp
-                    )}° - ощущается как ${Math.round(main.feels_like)}°`,
-                  },
-                  {
-                    icon: pressure,
-                    name: "Давление",
-                    value: `${main.pressure} мм ртутного столба - ${pressureStatus} давление`,
-                  },
-                  {
-                    icon: prec,
-                    name: "Осадки",
-                    value: `${weather[0].description}`,
-                  },
-                  {
-                    icon: windImg,
-                    name: "Ветер",
-                    value: `${wind.speed} м/с  ${this.getCardinalDirection(
-                      wind.deg
-                    )} - ${windStatus}`,
-                  },
-                ],
-              });
-            } catch (e) {}
-            console.log(result);
+          let windStatus =
+            wind.speed === 0
+              ? "безветрие"
+              : wind.speed > 0 && wind.speed <= 5
+              ? "слабый ветер"
+              : wind.speed > 5 && wind.speed <= 10
+              ? "умеренный ветер"
+              : wind.speed > 10 && wind.speed <= 18
+              ? "сильный ветер"
+              : wind.speed > 18 && wind.speed <= 30
+              ? "шторм"
+              : "ураган";
+
+          this.setState({
+            data: result,
+            items: [
+              {
+                icon: temp,
+                name: "Температура",
+                value: `${Math.round(
+                  result.main.temp
+                )}° - ощущается как ${Math.round(main.feels_like)}°`,
+              },
+              {
+                icon: pressure,
+                name: "Давление",
+                value: `${main.pressure} мм ртутного столба - ${pressureStatus} давление`,
+              },
+              {
+                icon: prec,
+                name: "Осадки",
+                value: `${weather[0].description}`,
+              },
+              {
+                icon: windImg,
+                name: "Ветер",
+                value: `${wind.speed} м/с  ${this.getCardinalDirection(
+                  wind.deg
+                )} - ${windStatus}`,
+              },
+            ],
           });
-      } catch (e) {}
+        })
+        .catch(this.onError);
     }
   };
   // getInfoWeek = () =>{
@@ -157,10 +160,12 @@ class App extends React.Component {
   // };
 
   render() {
-    const { theme, items } = this.state;
+    const { theme, items, error } = this.state;
+    const errorMes = error ? <ErrorMessage /> : null;
+    const content = !errorMes ? true : false;
     return (
       <div className="main_container">
-         <Popup  />
+        {/* <Popup /> */}
         <div className="container">
           <Header
             theme={theme}
@@ -169,10 +174,11 @@ class App extends React.Component {
             valueInput={this.city}
             getInfoWeather={this.getInfoWeather}
           />
+          {errorMes}
           <Routes>
             <Route
               path="/"
-              element={<Home items={items} data={this.state.data} />}
+              element={content && <Home items={items} data={this.state.data} />}
             />
             <Route path="/statictics" element={<Statictics />} />
           </Routes>

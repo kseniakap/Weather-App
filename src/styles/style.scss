@@ -13,6 +13,7 @@ body {
 .container {
   max-width: 1240px;
   margin: 0 auto;
+  margin-top: 150px;
   padding: 0 20px;
   padding-top: 20px;
 }
@@ -40,6 +41,9 @@ html[data-theme="dark"] {
   .TodayInfo_todayInfo__IqqKY {
     width: 740px;
   }
+  .container {
+    margin-top: 100px;
+  }
 }
 @media (max-width: 1200px) {
   .TodayInfo_todayInfo__IqqKY {
@@ -47,6 +51,9 @@ html[data-theme="dark"] {
   }
   .Home_wrapper__0Knh0 {
     margin-bottom: 30px;
+  }
+  .container {
+    margin-top: 70px;
   }
 }
 @media (max-width: 992px) {
@@ -64,9 +71,11 @@ html[data-theme="dark"] {
   .TodayInfo_todayInfo__img__ugzo5 {
     width: 100%;
   }
+  .container {
+    margin-top: 0px;
+  }
 }
 @media (max-width: 768px) {
-
   .TodayInfo_todayInfo__IqqKY,
   .Today_today__ZO8Iz {
     width: 90%;
@@ -111,5 +120,12 @@ html[data-theme="dark"] {
   }
   .TodayInfo_todayInfo__img__ugzo5 {
     display: none;
+  }
+  .Error_errorImg__ioeA7 {
+    width: 280px;
+    height: 280px;
+  }
+  .Error_descr__2FAd{
+    font-size: 20px;
   }
 }

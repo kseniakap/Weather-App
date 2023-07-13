@@ -7,7 +7,8 @@ import smallRainImg from './../../../../assets/icons/weather/small_rain.svg';
 import cloudWithSunImg from './../../../../assets/icons/weather/cloudwithsun.svg';
 import rainImg from './../../../../assets/icons/weather/smallrain.svg';
 import cloudyImg from './../../../../assets/icons/weather/cloudy.svg';
-import Popup from '../../../common/Popup/Popup';
+import RainImg from './../../../../assets/icons/weather/rain.svg';
+
 
 const Today = ({ data }) => {
   const { name, main } = data;
@@ -27,7 +28,8 @@ const Today = ({ data }) => {
           : descr === "небольшой дождь"
           ? rainImg
           : descr === "переменная облачность"
-          ? cloudyImg
+          ? cloudyImg : descr ==="дождь"? RainImg 
+          : descr ==="сильный дождь"? RainImg 
           : null;
     } catch (e) {      
     }
