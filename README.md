@@ -9,5 +9,5 @@
 </p>
 <div>Обработка ошибки, в случае если пользователь неверно ввёл название города</div>
 <p align="center">
-  <img src="hhttps://github.com/kseniakap/Weather-App/blob/main/error.png" />
+  <img src="https://github.com/kseniakap/Weather-App/blob/main/error.png" />
 </p>
