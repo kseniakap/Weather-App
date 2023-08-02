@@ -7,7 +7,7 @@
 <p align="center">
   <img src="https://github.com/kseniakap/Weather-App/blob/main/black_theme.png" />
 </p>
-<div>Обработка ошибки, в случае если пользователь неверно ввёл название города</div>
+<div>Обработка ошибки в случае если пользователь неверно ввёл название города</div>
 <p align="center">
   <img src="https://github.com/kseniakap/Weather-App/blob/main/error.png" />
 </p>
