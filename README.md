@@ -11,3 +11,7 @@
 <p align="center">
   <img src="https://github.com/kseniakap/Weather-App/blob/main/error.png" />
 </p>
+<div>Приложение адаптировано как под ноутбуки, так и под планшеты и телефоны (до 320px)</div>
+<p align="center">
+  <img src="https://github.com/kseniakap/Weather-App/blob/main/laptop.png" />
+</p>
